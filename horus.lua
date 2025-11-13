@@ -146,7 +146,7 @@ local Tab = Window:CreateTab("Стрельба", 4483362458) -- Title, Image
 
 
 local Button = Tab:CreateButton({
-   Name = "Авто фаер",
+   Name = "Авто фаер(not work now)",
    Callback = function()
       loadstring(game:HttpGet('https://raw.githubusercontent.com/VapingCat/Open-Source-TriggerBot/main/script.lua'))()
    end,
