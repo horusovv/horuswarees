@@ -146,12 +146,39 @@ local Tab = Window:CreateTab("Стрельба", 4483362458) -- Title, Image
 
 
 local Button = Tab:CreateButton({
-   Name = "Авто фаер(not work now)",
+   Name = "Авто фаер",
    Callback = function()
       loadstring(game:HttpGet('https://raw.githubusercontent.com/VapingCat/Open-Source-TriggerBot/main/script.lua'))()
    end,
 })
 
+local Tab = Window:CreateTab("Персонаж", 4483362458) -- Title, Image
+
+local Slider = Tab:CreateSlider({
+   Name = "WalkSpeed Slider",
+   Range = {0, 300},
+   Increment = 1,
+   Suffix = "🚤Speed",
+   CurrentValue = 16,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   end,
+})
+   
+local Button = Tab:CreateButton({
+   Name = "♾infinite jump",
+   Callback = function()
+local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+   end,
+})
+   
+   
 local Tab = Window:CreateTab("Модификация оружия", 4483362458) -- Title, Image
 
 local Button = Tab:CreateButton({
@@ -236,3 +263,10 @@ local Button = Tab:CreateButton({
      setfflag("WorldStepMax", "-99999999999999")wait(1)queue_on_teleport([[wait(3.5)setfflag("WorldStepMax", "-1")]])game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId)
    end,   
      })
+
+local Button = MainTab:CreateButton({
+   Name = "btools",
+   Callback = function()
+   loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/BTools.txt"))()
+   end,
+})
